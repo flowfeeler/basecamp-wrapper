@@ -1,13 +1,13 @@
 module Basecamp; class Attachment
   attr_accessor :id, :filename, :content, :category_id
 
-  def self.create(filename, content)
+  def self.create(filename, content=nil)
     returning new(filename, content) do |attachment|
       attachment.save
     end
   end
 
-  def initialize(filename, content)
+  def initialize(filename, content=nil)
     @filename, @content = filename, content
   end
 
